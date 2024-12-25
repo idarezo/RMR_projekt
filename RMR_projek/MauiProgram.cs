@@ -1,4 +1,6 @@
 ﻿namespace RMR_projek;
+using Microcharts.Maui;
+using Microcharts;
 
 public static class MauiProgram
 {
@@ -7,6 +9,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.UseMicrocharts()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

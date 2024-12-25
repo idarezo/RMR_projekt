@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RMR_projek.PodnajemnikPage"
+            Title="Moj profil"
+             Shell.BackgroundColor="Teal"
+             Shell.TitleColor="White"
+              xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             >
+
+
+
+    <Shell.TitleView>
+        <Label Text="Moj profil"
+               FontAttributes="Italic"
+               FontSize="24"
+               TextColor="White"
+               
+               VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <Grid>
+       
+        
+        
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
+
+                
+                <Grid>
+                    <Image
+                        Source="headerimage.png"
+                        Aspect="AspectFill"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        HeightRequest="200" />
+
+                   
+                    <Frame BackgroundColor="LightGreen" 
+                           CornerRadius="10"
+                           Padding="10,20"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Opacity="0.8"
+                           Margin="20">
+                        <Label Text="{Binding FullName, StringFormat='DOBRODOŠLI NAZAJ, {0}!'}"
+                               FontSize="18" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center" />
+                    </Frame>
+                </Grid>
+
+                
+                <VerticalStackLayout Margin="10">
+                    <Button Text="MOJE OBVEZNOSTI" 
+                            BackgroundColor="Turquoise" 
+                            TextColor="White" 
+                            FontAttributes="Bold" />
+
+                    <HorizontalStackLayout Margin="0,10,0,5">
+                        <Label Text="Najemnina za mesec marec" 
+                               VerticalOptions="Center" />
+                        <Button Text="PLAČAJ" 
+                                BackgroundColor="SteelBlue" 
+                                TextColor="White" 
+                                WidthRequest="70" 
+                                Margin="10,0,0,0" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Najemnina za mesec april" 
+                               VerticalOptions="Center" />
+                        <Button Text="PLAČAJ" 
+                                BackgroundColor="SteelBlue" 
+                                TextColor="White" 
+                                WidthRequest="70" 
+                                Margin="10,0,0,0" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Margin="10">
+                    <Frame BackgroundColor="LightCoral" 
+                           CornerRadius="10" 
+                           Margin="0,0,0,10">
+                        <Label Text="AKTUALNA OBVESTILA" 
+                               FontAttributes="Bold" 
+                               TextColor="White" 
+                               HorizontalTextAlignment="Center" />
+                    </Frame>
+
+                    <HorizontalStackLayout Margin="0,0,0,5">
+                        <Frame BackgroundColor="LightGray" 
+                               CornerRadius="20" 
+                               WidthRequest="40" 
+                               HeightRequest="40" />
+                        <Label Text="GLASOVANJE ZA NOVO BARVO" 
+                               VerticalOptions="Center" 
+                               Margin="10,0,0,0" />
+                        <Button Text="VEČ" 
+                                BackgroundColor="LightGray" 
+                                WidthRequest="50" 
+                                Margin="10,0,0,0" />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Frame BackgroundColor="LightGray" 
+                               CornerRadius="20" 
+                               WidthRequest="40" 
+                               HeightRequest="40" />
+                        <Label Text="OBVESTILO GLEDE HRUPA" 
+                               VerticalOptions="Center" 
+                               Margin="10,0,0,0" />
+                        <Button Text="VEČ" 
+                                BackgroundColor="LightGray" 
+                                WidthRequest="50" 
+                                Margin="10,0,0,0" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Margin="10">
+                    <Frame BackgroundColor="LightGreen" 
+                           CornerRadius="10" 
+                           Margin="0,0,0,10">
+                        <Label Text="MOJA STATISTIKA" 
+                               FontAttributes="Bold" 
+                               TextColor="White" 
+                               HorizontalTextAlignment="Center" />
+                    </Frame>
+                    <micro:ChartView x:Name="pieChartView" HeightRequest="250" Margin="20,0,0,40"/>
+                    <Button Text="VEČ" 
+                            BackgroundColor="LightGray" 
+                            WidthRequest="100" 
+                            HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1" BackgroundColor="Teal" HeightRequest="50"
+              VerticalOptions="End">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Text="🏠" 
+                    BackgroundColor="Teal" 
+                    TextColor="White"
+                    Clicked="prikaziMojProfil"/>
+            <Button Grid.Column="1" Text="📜" 
+                    BackgroundColor="Teal" 
+                    TextColor="White" 
+                    Clicked="prikaziRacune"
+                    />
+            <Button Grid.Column="2" Text="📊" 
+                    BackgroundColor="Teal" 
+                    TextColor="White"
+                    Clicked="prikaziStatistiko"
+                    />
+            <Button Grid.Column="3" Text="🛒" 
+                    BackgroundColor="Teal" 
+                    TextColor="White" 
+                    Clicked="prikaziNevem"
+                    />
+        </Grid>
+    </Grid>
+</ContentPage>

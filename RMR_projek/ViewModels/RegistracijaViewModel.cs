@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Firebase.Database;
+using Firebase.Database.Query;
 
 namespace RMR_projek.ViewModels
 {
@@ -22,12 +24,24 @@ namespace RMR_projek.ViewModels
 
         private Entry _eTxEmail;
         private Entry _eTxpass;
+        private Entry _ime;
+        private Entry _priimek;
+        private Entry _telefon;
+        private Entry _id;
+        private Entry _naslov;
 
-        public RegistracijaViewModel(INavigation navigation, Entry eTxEmail, Entry eTxPass)
+
+
+        public RegistracijaViewModel(INavigation navigation, Entry eTxEmail, Entry eTxPass,Entry ime,Entry priimek, Entry telefon,Entry idEntry,Entry naslov)
         {
             _navigation = navigation;
             _eTxEmail = eTxEmail;
             _eTxpass = eTxPass;
+            _ime = ime;
+            _priimek = priimek;
+            _telefon = telefon;
+            _id = idEntry;  
+            _naslov = naslov;
 
             RegistracijaUporabnika = new Command(RegistracijaUporabnikaTappendAsync);
         }
@@ -56,6 +70,27 @@ namespace RMR_projek.ViewModels
 
                 if (userCredential != null)
                 {
+
+                    var userId = userCredential.User.Uid;
+                    var displayName = userCredential.User.Info.DisplayName;
+                    var userEmail = userCredential.User.Info.Email;
+
+                    var user = new
+                    {
+                        id = _id.Text,
+                        email = userEmail,
+                        ime = _ime.Text,
+                        priimek= _priimek.Text ,
+                        telefon = _telefon.Text,
+                        naslov=_naslov.Text
+
+                    };
+
+                    var firebase = new FirebaseClient("https://rmr-projektnovo.firebaseio.com/");
+                    await firebase
+                     .Child("users")
+                     .PostAsync(user);
+
                     await Application.Current.MainPage.DisplayAlert("Obvestilo", "Uporabnik uspesno registriran", "OK");
                     _navigation.PopAsync();
                 }
@@ -67,7 +102,18 @@ namespace RMR_projek.ViewModels
                 {
                     await Application.Current.MainPage.DisplayAlert("Opozorilo", "Email je ze v uporabi. Vnesite drugo uporabnisko ime.", "OK");
                 }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Napaka",
+                   $"Unhandled Exception: {firebaseEx.Message}", "OK");
+                }
 
+            }
+            catch (Exception ex)
+            {
+          
+                await Application.Current.MainPage.DisplayAlert("Napaka",
+                    $"Unhandled Exception: {ex.Message}\nStackTrace: {ex.StackTrace}", "OK");
             }
 
 

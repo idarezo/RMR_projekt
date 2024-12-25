@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RMR_projek.MojProfilPage"
+             Title="Osebni podatki"
+             Shell.BackgroundColor="Teal"
+             Shell.TitleColor="White">
+
+    <Shell.TitleView>
+        <Label Text="Osebni podatki"
+               FontAttributes="Italic"
+               FontSize="24"
+               TextColor="White"
+               VerticalOptions="Center" />
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            
+            <Label Text="Moj osebni profil"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+
+            
+            <Label Text="Ime" FontSize="18" />
+            <Entry x:Name="imeEntry" Placeholder="Vnesite svoje ime" 
+                   BackgroundColor="#f0f0f0" 
+                  
+                   />
+
+            <!-- Surname Input -->
+            <Label Text="Priimek" FontSize="18" />
+            <Entry x:Name="priimekEntry" Placeholder="Vnesite svoj priimek" 
+                   BackgroundColor="#f0f0f0" 
+                  
+                  />
+
+            <!-- Address Input -->
+            <Label Text="Naslov" FontSize="18" />
+            <Entry x:Name="naslovEntry" Placeholder="Vnesite svoj naslov" 
+                   BackgroundColor="#f0f0f0" 
+                  
+                   />
+
+            <!-- Email Input -->
+            <Label Text="Email" FontSize="18" />
+            <Entry x:Name="emailEntry" Placeholder="Vnesite svoj email" 
+                   Keyboard="Email" 
+                   BackgroundColor="#f0f0f0" 
+                
+                   />
+
+            <!-- Phone Input -->
+            <Label Text="Telefon" FontSize="18" />
+            <Entry x:Name="telefonEntry" Placeholder="Vnesite svoj telefon" 
+                   Keyboard="Telephone" 
+                   BackgroundColor="#f0f0f0" 
+                   
+                  />
+
+            <!-- Password Input -->
+            <Label Text="Geslo" FontSize="18" />
+            <Entry x:Name="gesloEntry" Placeholder="Vnesite svoje geslo" 
+                   IsPassword="True" 
+                   BackgroundColor="#f0f0f0" 
+                
+                  />
+
+            <!-- Submit Button -->
+            <Button Text="Shrani"
+                    BackgroundColor="Teal"
+                    TextColor="White"
+                    FontSize="18"
+                    Padding="15,10"
+                  
+                    Clicked="OnSaveClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

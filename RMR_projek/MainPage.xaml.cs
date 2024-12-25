@@ -24,7 +24,7 @@ public partial class MainPage : ContentPage
         if (ime != "ime" || priimek != "priimek")
         {
 
-            DisplayAlert("Napacno uporabnisko ime ali geslo", "Prosimo, poskusite znova", "V redu");
+            DisplayAlert("Napacno uporabnisko ime ali geslo", "Prosimo, poskusite", "V redu");
         }
         else
         {

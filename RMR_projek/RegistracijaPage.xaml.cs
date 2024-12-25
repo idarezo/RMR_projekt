@@ -5,7 +5,7 @@ public partial class RegistracijaPage : ContentPage
 	public RegistracijaPage()
 	{
 		InitializeComponent();
-        BindingContext = new ViewModels.RegistracijaViewModel(Navigation, UporabniskoImeEntry, GesloEntry);
+        BindingContext = new ViewModels.RegistracijaViewModel(Navigation, UporabniskoImeEntry, GesloEntry, ImeEntry, PriimekEntry, TelefonEntry, IdEntry,naslovEntry);
 
     }
 }

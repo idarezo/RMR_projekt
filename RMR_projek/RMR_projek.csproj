@@ -49,16 +49,46 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="FirebaseAuthentication.net" Version="4.1.0" />
+	  <None Remove="Resources\Images\header.jpg" />
+	  <None Remove="Resources\Images\headerimage.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="FirebaseAuthentication.net" Version="4.1.0" />
+	  <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="MojProfilPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="NajemodajalecPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PodnajemnikPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="RacuniPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="RegistracijaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="StatistikaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+	  <PackageReference Include="Microcharts.Maui">
+	    <Version>1.0.0</Version>
+	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows10.0.19041.0'">
+	  <PackageReference Include="Microcharts.Maui">
+	    <Version>1.0.0</Version>
+	  </PackageReference>
 	</ItemGroup>
 
 </Project>
